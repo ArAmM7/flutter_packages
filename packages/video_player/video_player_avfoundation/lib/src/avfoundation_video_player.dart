@@ -89,6 +89,11 @@ class AVFoundationVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
+  Future<void> setExternalPlayback(bool allowsExternalPlayback) {
+    return _api.setExternalPlayback(allowsExternalPlayback);
+  }
+
+  @override
   Future<void> seekTo(int textureId, Duration position) {
     return _api.seekTo(position.inMilliseconds, textureId);
   }
