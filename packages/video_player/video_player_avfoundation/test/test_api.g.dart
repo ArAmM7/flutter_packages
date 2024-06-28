@@ -65,7 +65,7 @@ abstract class TestHostVideoPlayerApi {
 
   void pause(int textureId);
 
-  void setExternalPlayback(bool allowsExternalPlayback);
+  void setExternalPlayback(bool allowsExternalPlayback, int textureId);
 
   void setMixWithOthers(bool mixWithOthers);
 
@@ -412,8 +412,11 @@ abstract class TestHostVideoPlayerApi {
           final bool? arg_allowsExternalPlayback = (args[0] as bool?);
           assert(arg_allowsExternalPlayback != null,
               'Argument for dev.flutter.pigeon.video_player_avfoundation.AVFoundationVideoPlayerApi.setExternalPlayback was null, expected non-null bool.');
+          final int? arg_textureId = (args[1] as int?);
+          assert(arg_textureId != null,
+              'Argument for dev.flutter.pigeon.video_player_avfoundation.AVFoundationVideoPlayerApi.setExternalPlayback was null, expected non-null int.');
           try {
-            api.setExternalPlayback(arg_allowsExternalPlayback!);
+            api.setExternalPlayback(arg_allowsExternalPlayback!, arg_textureId!);
             return wrapResponse(empty: true);
           } on PlatformException catch (e) {
             return wrapResponse(error: e);
