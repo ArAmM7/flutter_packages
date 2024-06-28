@@ -565,13 +565,13 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     await _applyLooping();
   }
 
-  /// Set external playback allowed
+  /// Pauses the video.
   Future<void> pause() async {
     value = value.copyWith(isPlaying: false);
     await _applyPlayPause();
   }
 
-  /// Pauses the video.
+  /// Set external playback allowed
   Future<void> setExternalPlayback(bool allowsExternalPlayback) async {
     await _videoPlayerPlatform.setExternalPlayback(allowsExternalPlayback);
   }
