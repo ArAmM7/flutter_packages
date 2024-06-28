@@ -95,7 +95,8 @@ class AndroidVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
-  Future<void> setExternalPlayback(bool allowsExternalPlayback) =>
+  Future<void> setExternalPlayback(
+          bool allowsExternalPlayback, int textureId) =>
       Future<void>.value();
 
   @override

@@ -103,7 +103,7 @@ abstract class VideoPlayerPlatform extends PlatformInterface {
     throw UnimplementedError('setMixWithOthers() has not been implemented.');
   }
 
-  Future<void> setExternalPlayback(bool allowsExternalPlayback) {
+  Future<void> setExternalPlayback(bool allowsExternalPlayback, int textureId) {
     throw UnimplementedError('setExternalPlayback() has not been implemented.');
   }
 
