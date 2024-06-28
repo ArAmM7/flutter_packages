@@ -549,7 +549,8 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
 
   /// Set external playback allowed
   Future<void> setExternalPlayback(bool allowsExternalPlayback) async {
-    await _videoPlayerPlatform.setExternalPlayback(allowsExternalPlayback);
+    await _videoPlayerPlatform.setExternalPlayback(
+        allowsExternalPlayback, _textureId);
   }
 
   Future<void> _applyLooping() async {
