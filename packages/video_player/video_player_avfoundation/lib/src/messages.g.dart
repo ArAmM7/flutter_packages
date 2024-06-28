@@ -336,7 +336,7 @@ class AVFoundationVideoPlayerApi {
     }
   }
 
-  Future<void> setExternalPlayback(bool allowsExternalPlayback) async {
+  Future<void> setExternalPlayback(bool allowsExternalPlayback, int textureId) async {
     final String __pigeon_channelName = 'dev.flutter.pigeon.video_player_avfoundation.AVFoundationVideoPlayerApi.setExternalPlayback$__pigeon_messageChannelSuffix';
     final BasicMessageChannel<Object?> __pigeon_channel = BasicMessageChannel<Object?>(
       __pigeon_channelName,
@@ -344,7 +344,7 @@ class AVFoundationVideoPlayerApi {
       binaryMessenger: __pigeon_binaryMessenger,
     );
     final List<Object?>? __pigeon_replyList =
-        await __pigeon_channel.send(<Object?>[allowsExternalPlayback]) as List<Object?>?;
+        await __pigeon_channel.send(<Object?>[allowsExternalPlayback, textureId]) as List<Object?>?;
     if (__pigeon_replyList == null) {
       throw _createConnectionError(__pigeon_channelName);
     } else if (__pigeon_replyList.length > 1) {
