@@ -466,6 +466,10 @@ NS_INLINE CGFloat radiansToDegrees(CGFloat radians) {
   [self updatePlayingState];
 }
 
+- (void)setAllowsExternalPlayback:(BOOL)val {
+    _player.allowsExternalPlayback = val;
+}
+
 - (int64_t)position {
   return FVPCMTimeToMillis([_player currentTime]);
 }
@@ -815,7 +819,7 @@ NS_INLINE CGFloat radiansToDegrees(CGFloat radians) {
 
 - (void)setExternalPlayback:(BOOL)isEnabled forPlayer:(NSInteger)textureId error:(FlutterError **)error {
   FVPVideoPlayer *player = self.playersByTextureId[@(textureId)];
-  player.allowsExternalPlayback = isEnabled;
+  [player setAllowsExternalPlayback:isEnabled];
 }
 
 - (void)setMixWithOthers:(BOOL)mixWithOthers
