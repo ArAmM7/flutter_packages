@@ -57,7 +57,7 @@ abstract class AVFoundationVideoPlayerApi {
   void pause(int textureId);
   @ObjCSelector('setExternalPlayback:forPlayer:')
   void setExternalPlayback(bool allowsExternalPlayback, int textureId);
-  @ObjCSelector('forPlayer:')
+  @ObjCSelector('getExternalPlaybackActive:')
   bool getExternalPlaybackActive(int textureId);
   @ObjCSelector('setMixWithOthers:')
   void setMixWithOthers(bool mixWithOthers);
