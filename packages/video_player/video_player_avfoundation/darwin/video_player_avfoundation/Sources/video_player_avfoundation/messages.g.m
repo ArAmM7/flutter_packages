@@ -344,12 +344,12 @@ void SetUpFVPAVFoundationVideoPlayerApiWithSuffix(id<FlutterBinaryMessenger> bin
         binaryMessenger:binaryMessenger
         codec:FVPGetMessagesCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(forPlayer:error:)], @"FVPAVFoundationVideoPlayerApi api (%@) doesn't respond to @selector(forPlayer:error:)", api);
+      NSCAssert([api respondsToSelector:@selector(getExternalPlaybackActive:error:)], @"FVPAVFoundationVideoPlayerApi api (%@) doesn't respond to @selector(getExternalPlaybackActive:error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray<id> *args = message;
         NSInteger arg_textureId = [GetNullableObjectAtIndex(args, 0) integerValue];
         FlutterError *error;
-        NSNumber *output = [api forPlayer:arg_textureId error:&error];
+        NSNumber *output = [api getExternalPlaybackActive:arg_textureId error:&error];
         callback(wrapResult(output, error));
       }];
     } else {
