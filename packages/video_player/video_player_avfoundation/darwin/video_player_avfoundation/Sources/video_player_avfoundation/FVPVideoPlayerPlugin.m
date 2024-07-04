@@ -818,7 +818,7 @@ NS_INLINE CGFloat radiansToDegrees(CGFloat radians) {
   [player.player setAllowsExternalPlayback:allowsExternalPlayback];
 }
 
-- (NSNumber)getExternalPlaybackActive:(NSInteger)textureId error:(FlutterError **)error {
+- (NSNumber*)getExternalPlaybackActive:(NSInteger)textureId error:(FlutterError **)error {
   FVPVideoPlayer *player = self.playersByTextureId[@(textureId)];
     BOOL isActive = [player.player isExternalPlaybackActive];
     return [NSNumber numberWithBool:isActive];
