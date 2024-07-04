@@ -47,6 +47,8 @@ NSObject<FlutterMessageCodec> *FVPGetMessagesCodec(void);
 - (void)seekTo:(NSInteger)position forPlayer:(NSInteger)textureId completion:(void (^)(FlutterError *_Nullable))completion;
 - (void)pausePlayer:(NSInteger)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setExternalPlayback:(BOOL)allowsExternalPlayback forPlayer:(NSInteger)textureId error:(FlutterError *_Nullable *_Nonnull)error;
+/// @return `nil` only when `error != nil`.
+- (nullable NSNumber *)forPlayer:(NSInteger)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setMixWithOthers:(BOOL)mixWithOthers error:(FlutterError *_Nullable *_Nonnull)error;
 @end
 

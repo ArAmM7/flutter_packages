@@ -113,6 +113,10 @@ class AndroidVideoPlayer extends VideoPlayerPlatform {
       Future<void>.value();
 
   @override
+  Future<bool> getExternalPlaybackActive(int textureId) =>
+      Future<bool>.value(false);
+
+  @override
   Future<Duration> getPosition(int textureId) async {
     final PositionMessage response =
         await _api.position(TextureMessage(textureId: textureId));

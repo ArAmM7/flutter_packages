@@ -553,6 +553,11 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
         allowsExternalPlayback, _textureId);
   }
 
+  /// Get external playback active
+  Future<void> getExternalPlaybackActive() async {
+    await _videoPlayerPlatform.getExternalPlaybackActive(_textureId);
+  }
+
   Future<void> _applyLooping() async {
     if (_isDisposedOrNotInitialized) {
       return;

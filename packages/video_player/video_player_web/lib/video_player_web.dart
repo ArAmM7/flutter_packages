@@ -120,6 +120,11 @@ class VideoPlayerPlugin extends VideoPlayerPlatform {
   Future<void> setExternalPlayback(
           bool allowsExternalPlayback, int textureId) =>
       Future<void>.value();
+
+  @override
+  Future<bool> getExternalPlaybackActive(int textureId) =>
+      Future<bool>.value(false);
+
   @override
   Future<void> seekTo(int textureId, Duration position) async {
     return _player(textureId).seekTo(position);

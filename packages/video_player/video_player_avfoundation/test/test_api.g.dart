@@ -63,6 +63,8 @@ abstract class TestHostVideoPlayerApi {
 
   void setExternalPlayback(bool allowsExternalPlayback, int textureId);
 
+  bool getExternalPlaybackActive(int textureId);
+
   void setMixWithOthers(bool mixWithOthers);
 
   static void setUp(TestHostVideoPlayerApi? api, {BinaryMessenger? binaryMessenger, String messageChannelSuffix = '',}) {
@@ -343,6 +345,31 @@ abstract class TestHostVideoPlayerApi {
           try {
             api.setExternalPlayback(arg_allowsExternalPlayback!, arg_textureId!);
             return wrapResponse(empty: true);
+          } on PlatformException catch (e) {
+            return wrapResponse(error: e);
+          }          catch (e) {
+            return wrapResponse(error: PlatformException(code: 'error', message: e.toString()));
+          }
+        });
+      }
+    }
+    {
+      final BasicMessageChannel<Object?> __pigeon_channel = BasicMessageChannel<Object?>(
+          'dev.flutter.pigeon.video_player_avfoundation.AVFoundationVideoPlayerApi.getExternalPlaybackActive$messageChannelSuffix', pigeonChannelCodec,
+          binaryMessenger: binaryMessenger);
+      if (api == null) {
+        _testBinaryMessengerBinding!.defaultBinaryMessenger.setMockDecodedMessageHandler<Object?>(__pigeon_channel, null);
+      } else {
+        _testBinaryMessengerBinding!.defaultBinaryMessenger.setMockDecodedMessageHandler<Object?>(__pigeon_channel, (Object? message) async {
+          assert(message != null,
+          'Argument for dev.flutter.pigeon.video_player_avfoundation.AVFoundationVideoPlayerApi.getExternalPlaybackActive was null.');
+          final List<Object?> args = (message as List<Object?>?)!;
+          final int? arg_textureId = (args[0] as int?);
+          assert(arg_textureId != null,
+              'Argument for dev.flutter.pigeon.video_player_avfoundation.AVFoundationVideoPlayerApi.getExternalPlaybackActive was null, expected non-null int.');
+          try {
+            final bool output = api.getExternalPlaybackActive(arg_textureId!);
+            return <Object?>[output];
           } on PlatformException catch (e) {
             return wrapResponse(error: e);
           }          catch (e) {

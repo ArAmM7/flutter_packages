@@ -818,6 +818,11 @@ NS_INLINE CGFloat radiansToDegrees(CGFloat radians) {
   [player.player setAllowsExternalPlayback:allowsExternalPlayback];
 }
 
+- (BOOL)getExternalPlaybackActive:(NSInteger)textureId error:(FlutterError **)error {
+  FVPVideoPlayer *player = self.playersByTextureId[@(textureId)];
+    return @([player.player externalPlaybackActive]);
+}
+
 - (void)setMixWithOthers:(BOOL)mixWithOthers
                    error:(FlutterError *_Nullable __autoreleasing *)error {
 #if TARGET_OS_OSX
